@@ -1,0 +1,127 @@
+{
+ "actions": [],
+ "allow_guest_to_view": 1,
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "FF-OPN-.YYYY.-.####",
+ "creation": "2025-01-24 10:17:29.917591",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "vacancy_title",
+  "designation",
+  "company",
+  "is_published",
+  "route",
+  "column_break_sjeg",
+  "status",
+  "posted_on",
+  "closes_on",
+  "vacancy_description_tab",
+  "vacancy_details"
+ ],
+ "fields": [
+  {
+   "fieldname": "vacancy_title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Vacancy Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "designation",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Designation",
+   "options": "Designation",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_sjeg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Open\nClosed"
+  },
+  {
+   "fieldname": "closes_on",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Closes On"
+  },
+  {
+   "fieldname": "posted_on",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Posted On"
+  },
+  {
+   "fieldname": "vacancy_description_tab",
+   "fieldtype": "Tab Break",
+   "label": "Vacancy Description"
+  },
+  {
+   "fieldname": "vacancy_details",
+   "fieldtype": "Text Editor",
+   "label": "Vacancy Details"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_published",
+   "fieldtype": "Check",
+   "label": "Publish On Website"
+  },
+  {
+   "fieldname": "route",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Route"
+  },
+  {
+   "description": "Company or Organization Looking to Hire",
+   "fieldname": "company",
+   "fieldtype": "Data",
+   "label": "Company"
+  }
+ ],
+ "has_web_view": 1,
+ "index_web_pages_for_search": 1,
+ "is_published_field": "is_published",
+ "links": [],
+ "modified": "2025-01-24 11:13:46.729866",
+ "modified_by": "Administrator",
+ "module": "The Flying Fish",
+ "name": "Job Vacancy",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "route": "open-positions",
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "vacancy_title",
+ "translated_doctype": 1
+}
