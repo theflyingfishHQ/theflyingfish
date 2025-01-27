@@ -11,6 +11,7 @@
   "vacancy_title",
   "designation",
   "company",
+  "department",
   "is_published",
   "route",
   "column_break_sjeg",
@@ -58,7 +59,7 @@
   },
   {
    "fieldname": "posted_on",
-   "fieldtype": "Date",
+   "fieldtype": "Datetime",
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Posted On"
@@ -90,13 +91,18 @@
    "fieldname": "company",
    "fieldtype": "Data",
    "label": "Company"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Data",
+   "label": "Department"
   }
  ],
  "has_web_view": 1,
  "index_web_pages_for_search": 1,
  "is_published_field": "is_published",
  "links": [],
- "modified": "2025-01-24 18:33:47.808629",
+ "modified": "2025-01-27 14:34:11.974239",
  "modified_by": "Administrator",
  "module": "The Flying Fish",
  "name": "Job Vacancy",
