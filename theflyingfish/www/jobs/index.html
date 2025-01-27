@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job List View</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS for badge styling */
+        .status-badge {
+            border-radius: 12px; /* Better border-radius */
+            padding: 6px 12px; /* Better padding */
+            font-size: 14px; /* Slightly larger font */
+            font-weight: 500; /* Medium font weight */
+        }
+        .table-hover tbody tr:hover {
+            background-color: #f8f9fa; /* Light hover effect */
+        }
+        .disabled-row {
+            color: #6c757d; /* Grayed out text for closed jobs */
+            pointer-events: none; /* Disable click events */
+        }
+    </style>
+</head>
+<body>
+    {% set jobs = frappe.get_all("Job Vacancy", fields=["name", "route", "vacancy_title", "company", "status", "posted_on", "closes_on"]) %}
+    <div class="container mt-5">
+        <h3 class="mb-4">Job Openings</h3>
+        
+        <!-- Combined Filters and Job List -->
+        <div class="card">
+            <div class="card-body">
+                <!-- Filters -->
+                <form id="filterForm">
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <input type="text" class="form-control" id="vacancyTitle" placeholder="Vacancy Title">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <input type="text" class="form-control" id="company" placeholder="Enter company">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <select class="form-control" id="status">
+                                <option value="">Status</option>
+                                <option value="Open">Open</option>
+                                <option value="Closed">Closed</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Job List -->
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Vacancy Title</th>
+                            <th>Company</th>
+                            <th>Status</th>
+                            <th>Posted On</th>
+                            <th>Closes On</th>
+                        </tr>
+                    </thead>
+                    <tbody id="jobList">
+                        <!-- Job items will be populated here -->
+                        {% for job in jobs %}
+                        <tr class="job-item {% if job.status == 'Closed' %}disabled-row{% endif %}">
+                            <td>
+                                {% if job.status == 'Closed' %}
+                                    <strong>{{ job.vacancy_title }}</strong> <!-- Plain text for closed jobs -->
+                                {% else %}
+                                    <strong><a href="{{ job.route }}">{{ job.vacancy_title }}</a></strong> <!-- Link for open/pending jobs -->
+                                {% endif %}
+                            </td>
+                            <td>{{ job.company }}</td>
+                            <td>
+                                <!-- Status badge with dynamic color -->
+                                <span class="badge status-badge 
+                                    {% if job.status == 'Open' %}badge-success
+                                    {% elif job.status == 'Closed' %}badge-danger
+                                    {% else %}badge-secondary
+                                    {% endif %}">
+                                    {{ job.status }}
+                                </span>
+                            </td>
+                            <td>{{ job.posted_on }}</td>
+                            <td>{{ job.closes_on }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Function to filter jobs
+            function filterJobs() {
+                // Get filter values
+                const vacancyTitle = $('#vacancyTitle').val().toLowerCase();
+                const company = $('#company').val().toLowerCase();
+                const status = $('#status').val();
+
+                // Filter job items
+                $('.job-item').each(function() {
+                    const title = $(this).find('td').eq(0).text().toLowerCase();
+                    const companyName = $(this).find('td').eq(1).text().toLowerCase();
+                    const jobStatus = $(this).find('.status-badge').text().trim();
+
+                    const titleMatch = title.includes(vacancyTitle);
+                    const companyMatch = companyName.includes(company);
+                    const statusMatch = status === "" || jobStatus === status;
+
+                    if (titleMatch && companyMatch && statusMatch) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            }
+
+            // Attach event listeners to filter inputs
+            $('#vacancyTitle, #company, #status').on('input change', function() {
+                filterJobs(); // Call the filter function whenever input changes
+            });
+
+            // Initial filter call to apply any default filters
+            filterJobs();
+        });
+    </script>
+</body>
+</html>
