@@ -1,8 +1,8 @@
 {% extends "templates/web.html" %}
-{% block title %} {{ _("Job Openings") }} {% endblock title %}
+{% block title %} {{ _("Job Board") }} {% endblock title %}
 
 {% block header %}
-<h3 class="mt-0 mb-10 jobs-page">{{ _("Job Openings") }}</h3>
+<h3 class="mt-0 mb-10 jobs-page">{{ _("Job Vacancies") }}</h3>
 {% endblock header %}
 
 {% block page_content %}
@@ -126,7 +126,8 @@
 			{% for jo in job_openings %}
 			<div class="mb-8 col-sm-6">
 				<div
-					id="{{ jo.route }}"
+					{% set route = jo.route.split('/')[1] %}
+					id="{{ route }}"
 					name="card"
 					class="card border h-100 flex flex-col"
 					role="button"
