@@ -1,0 +1,61 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"MkYsjCZS4f\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h2\\\">The Flying Fish</span>\",\"col\":12}},{\"id\":\"gLLELxw3JD\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"t1D16TYzvw\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Job Board</span>\",\"col\":11}},{\"id\":\"cnXOvqEmtq\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Create New Job Vacancy\",\"col\":3}},{\"id\":\"kkHZ9W9fmq\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Open Vacancies\",\"col\":3}},{\"id\":\"Hrzmw5wrJn\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Expired Job Vacancies\",\"col\":3}},{\"id\":\"2B8SJO6lio\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Job Listing\",\"col\":3}}]",
+ "creation": "2025-01-29 12:00:59.619240",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "external-link",
+ "idx": 0,
+ "indicator_color": "light-blue",
+ "is_hidden": 0,
+ "label": "The Flying Fish",
+ "links": [],
+ "modified": "2025-01-29 13:05:33.733174",
+ "modified_by": "Administrator",
+ "module": "The Flying Fish",
+ "name": "The Flying Fish",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 1.0,
+ "shortcuts": [
+  {
+   "color": "Cyan",
+   "doc_view": "New",
+   "label": "Create New Job Vacancy",
+   "link_to": "Job Vacancy",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Job Listing",
+   "type": "URL",
+   "url": "/job-board"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Open Vacancies",
+   "link_to": "Job Vacancy",
+   "stats_filter": "[[\"Job Vacancy\",\"status\",\"=\",\"Open\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Red",
+   "doc_view": "List",
+   "label": "Expired Job Vacancies",
+   "link_to": "Job Vacancy",
+   "stats_filter": "[[\"Job Vacancy\",\"status\",\"=\",\"Closed\",false]]",
+   "type": "DocType"
+  }
+ ],
+ "title": "The Flying Fish"
+}
