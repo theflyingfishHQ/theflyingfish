@@ -12,12 +12,15 @@
   "designation",
   "company",
   "department",
+  "employment_type",
   "is_published",
   "route",
   "column_break_sjeg",
   "status",
   "posted_on",
   "closes_on",
+  "location",
+  "cover_image",
   "vacancy_description_tab",
   "vacancy_details"
  ],
@@ -95,13 +98,29 @@
    "fieldname": "department",
    "fieldtype": "Data",
    "label": "Department"
+  },
+  {
+   "fieldname": "cover_image",
+   "fieldtype": "Attach Image",
+   "label": "Cover Image"
+  },
+  {
+   "fieldname": "employment_type",
+   "fieldtype": "Select",
+   "label": "Employment Type",
+   "options": "Full Time\nPart-time\nContract\nFreelance"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Location"
   }
  ],
  "has_web_view": 1,
  "index_web_pages_for_search": 1,
  "is_published_field": "is_published",
  "links": [],
- "modified": "2025-01-29 09:49:26.423267",
+ "modified": "2025-01-30 10:29:53.393680",
  "modified_by": "Administrator",
  "module": "The Flying Fish",
  "name": "Job Vacancy",

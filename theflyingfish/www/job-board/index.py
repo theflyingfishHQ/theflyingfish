@@ -35,10 +35,13 @@ def get_job_openings(filters=None, txt=None, sort=None, limit=20, offset=0):
 			jo.designation,
 			jo.vacancy_details,
 			jo.department,
+			jo.employment_type,
+			jo.location,
 			jo.route,
 			jo.company,
 			jo.posted_on,
 			jo.closes_on,
+			jo.cover_image,
 			Count(jo.vacancy_title).as_("no_of_applications"),
 		)
 		.where((jo.status == "Open") & (jo.is_published == 1))
