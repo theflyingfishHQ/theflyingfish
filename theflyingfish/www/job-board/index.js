@@ -112,11 +112,11 @@ $(() => {
 
 function update_params(params = "") {
 	if ($("#filters-drawer").css("bottom") != "0px")
-		return scroll_up_and_execute(() => (window.location.href = "/jobs?" + params));
+		return scroll_up_and_execute(() => (window.location.href = "/job-board?" + params));
 
 	$("#filters-drawer").css("bottom", "-80vh");
 	$("#filters-drawer").on("transitionend webkitTransitionEnd oTransitionEnd", () =>
-		scroll_up_and_execute(() => (window.location.href = "/jobs?" + params)),
+		scroll_up_and_execute(() => (window.location.href = "/job-board?" + params)),
 	);
 }
 
