@@ -21,6 +21,10 @@
   "closes_on",
   "location",
   "cover_image",
+  "meta_section",
+  "meta_title",
+  "column_break_jjkl",
+  "meta_description",
   "vacancy_description_tab",
   "vacancy_details"
  ],
@@ -102,7 +106,8 @@
   {
    "fieldname": "cover_image",
    "fieldtype": "Attach Image",
-   "label": "Cover Image"
+   "label": "Cover Image",
+   "reqd": 1
   },
   {
    "fieldname": "employment_type",
@@ -114,13 +119,34 @@
    "fieldname": "location",
    "fieldtype": "Data",
    "label": "Location"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "meta_section",
+   "fieldtype": "Section Break",
+   "label": "Meta"
+  },
+  {
+   "fieldname": "meta_title",
+   "fieldtype": "Data",
+   "label": "Meta Title",
+   "length": 60
+  },
+  {
+   "fieldname": "column_break_jjkl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "meta_description",
+   "fieldtype": "Small Text",
+   "label": "Meta Description"
   }
  ],
  "has_web_view": 1,
  "index_web_pages_for_search": 1,
  "is_published_field": "is_published",
  "links": [],
- "modified": "2025-01-30 10:29:53.393680",
+ "modified": "2025-02-06 11:26:59.218613",
  "modified_by": "Administrator",
  "module": "The Flying Fish",
  "name": "Job Vacancy",
