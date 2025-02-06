@@ -16,7 +16,7 @@ class JobVacancy(WebsiteGenerator):
 			raise Exception("This Vacancy has not been published yet!")
 
 		context.description = (
-			self.meta_description or self.vacancy_details[:500]
+			self.vacancy_details[:500] or f'{self.vacancy_title}, {self.designation}'
 		)
 
 		context.metatags = {
