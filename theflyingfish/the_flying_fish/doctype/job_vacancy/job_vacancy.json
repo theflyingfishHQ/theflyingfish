@@ -102,7 +102,8 @@
   {
    "fieldname": "cover_image",
    "fieldtype": "Attach Image",
-   "label": "Cover Image"
+   "label": "Cover Image",
+   "reqd": 1
   },
   {
    "fieldname": "employment_type",
@@ -120,7 +121,7 @@
  "index_web_pages_for_search": 1,
  "is_published_field": "is_published",
  "links": [],
- "modified": "2025-01-30 10:29:53.393680",
+ "modified": "2025-02-06 13:40:54.900840",
  "modified_by": "Administrator",
  "module": "The Flying Fish",
  "name": "Job Vacancy",
