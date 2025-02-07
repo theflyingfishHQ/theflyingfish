@@ -86,7 +86,8 @@
   {
    "fieldname": "route",
    "fieldtype": "Data",
-   "label": "Route"
+   "label": "Route",
+   "no_copy": 1
   },
   {
    "description": "Company or Organization Looking to Hire",
@@ -103,6 +104,7 @@
    "fieldname": "cover_image",
    "fieldtype": "Attach Image",
    "label": "Cover Image",
+   "no_copy": 1,
    "reqd": 1
   },
   {
@@ -121,7 +123,7 @@
  "index_web_pages_for_search": 1,
  "is_published_field": "is_published",
  "links": [],
- "modified": "2025-02-06 13:40:54.900840",
+ "modified": "2025-02-07 09:05:24.976955",
  "modified_by": "Administrator",
  "module": "The Flying Fish",
  "name": "Job Vacancy",
