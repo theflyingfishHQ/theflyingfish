@@ -15,9 +15,8 @@ class JobVacancy(WebsiteGenerator):
 		if not cint(self.is_published):
 			raise Exception("This Vacancy has not been published yet!")
 
-		context.description = (
-			self.vacancy_details[:500] or f'{self.vacancy_title}, {self.designation}'
-		)
+		description = self.vacancy_details[:500] if self.vacancy_details else self.vacancy_title
+		context.description = description
 
 		context.metatags = {
 			"name": self.vacancy_title,
