@@ -3,8 +3,8 @@
 The Flying Fish is a job listing for different companies that do marine services
 
 ## Overview
-![Job Vacancy Listing](add_images_to_job_card.png)
-![Single Job Page](job_page.png)
+![Job Vacancies Listing](.github\job_cards.png)
+![Single Job View](.github\single_job_view.png)
 
 ## Installation
 

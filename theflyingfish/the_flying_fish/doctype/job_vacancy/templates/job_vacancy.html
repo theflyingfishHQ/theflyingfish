@@ -15,29 +15,8 @@
 				<div class="mx-auto mx-md-0">
 					<span class="font-weight-bold">{{ company }}</span>
 					{{ " · " }}
-					{{ posted_on }}
+					{{ creation.strftime('%Y-%m-%d') }}
 				</div>
-			</div>
-		</div>
-		<div class="col-md-3 flex">
-			<div class="ml-auto d-none d-md-block">
-				{%- if status == "Open" -%}
-					<a
-						class="btn btn-primary btn-lg"
-						href="/{{ job_application_route if job_application_route else 'job_application' }}/new?job_title={{ name }}"
-					>
-						{{ _("Apply Now") }}
-					</a>
-				{%- else -%}
-					<div
-						class="py-4 px-10 font-weight-bold text-nowrap"
-						style="background: var(--bg-gray);
-							font-size: 1.1rem;
-							border-radius: var(--border-radius)"
-					>
-						{{ _("Opening closed.") }}
-					</div>
-				{% endif %}
 			</div>
 		</div>
 	</div>

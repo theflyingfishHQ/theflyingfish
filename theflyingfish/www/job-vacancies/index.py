@@ -30,21 +30,21 @@ def get_job_openings(filters=None, txt=None, sort=None, limit=20, offset=0):
 		frappe.qb.from_(jo)
 		.select(
 			jo.name,
-			jo.status,
+			# jo.status,
 			jo.vacancy_title,
-			jo.designation,
+			jo.position,
 			jo.vacancy_details,
-			jo.department,
-			jo.employment_type,
-			jo.location,
+			# jo.department,
+			# jo.employment_type,
+			# jo.location,
 			jo.route,
 			jo.company,
-			jo.posted_on,
-			jo.closes_on,
+			(jo.creation).as_("posted_on"),
+			# jo.closes_on,
 			jo.cover_image,
 			Count(jo.vacancy_title).as_("no_of_applications"),
 		)
-		.where((jo.status == "Open") & (jo.is_published == 1))
+		.where((jo.is_published == 1))
 		.groupby(jo.name)
 		.limit(limit)
 		.offset(offset)
@@ -71,7 +71,7 @@ def get_no_of_pages(filters=None, txt=None, page_length=20):
 		.select(
 			Count("*").as_("no_of_openings"),
 		)
-		.where((jo.status == "Open") & (jo.is_published == 1))
+		.where(jo.is_published == 1)
 	)
 
 	for d in filters:
@@ -87,8 +87,8 @@ def get_no_of_pages(filters=None, txt=None, page_length=20):
 def get_all_filters(filters=None):
 	job_openings = frappe.get_all(
 		"Job Vacancy",
-		filters={"is_published": 1, "status": "Open"},
-		fields=["company", "designation"],
+		filters={"is_published": 1},
+		fields=["position"],
 	)
 
 	companies = filters.get("company", [])
@@ -108,7 +108,7 @@ def get_filters_txt_sort_offset(page_len=20):
 	txt = ""
 	sort = None
 	offset = 0
-	allowed_filters = ["company", "designation"]
+	allowed_filters = ["position"]
 
 	for d in args:
 		if d in allowed_filters:
