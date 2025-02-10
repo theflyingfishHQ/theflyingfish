@@ -9,20 +9,15 @@
  "engine": "InnoDB",
  "field_order": [
   "vacancy_title",
-  "designation",
+  "position",
   "company",
-  "department",
-  "employment_type",
-  "is_published",
-  "route",
   "column_break_sjeg",
-  "status",
-  "posted_on",
-  "closes_on",
-  "location",
+  "is_published",
   "cover_image",
-  "vacancy_description_tab",
-  "vacancy_details"
+  "section_break_iefr",
+  "vacancy_details",
+  "section_break_dluw",
+  "route"
  ],
  "fields": [
   {
@@ -34,43 +29,8 @@
    "reqd": 1
   },
   {
-   "fieldname": "designation",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Designation",
-   "reqd": 1
-  },
-  {
    "fieldname": "column_break_sjeg",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Status",
-   "options": "Open\nClosed"
-  },
-  {
-   "fieldname": "closes_on",
-   "fieldtype": "Date",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Closes On"
-  },
-  {
-   "fieldname": "posted_on",
-   "fieldtype": "Datetime",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Posted On"
-  },
-  {
-   "fieldname": "vacancy_description_tab",
-   "fieldtype": "Tab Break",
-   "label": "Vacancy Description"
   },
   {
    "fieldname": "vacancy_details",
@@ -86,19 +46,9 @@
   {
    "fieldname": "route",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Route",
    "no_copy": 1
-  },
-  {
-   "description": "Company or Organization Looking to Hire",
-   "fieldname": "company",
-   "fieldtype": "Data",
-   "label": "Company"
-  },
-  {
-   "fieldname": "department",
-   "fieldtype": "Data",
-   "label": "Department"
   },
   {
    "fieldname": "cover_image",
@@ -108,22 +58,31 @@
    "reqd": 1
   },
   {
-   "fieldname": "employment_type",
-   "fieldtype": "Select",
-   "label": "Employment Type",
-   "options": "Full Time\nPart-time\nContract\nFreelance"
+   "fieldname": "section_break_iefr",
+   "fieldtype": "Section Break"
   },
   {
-   "fieldname": "location",
+   "fieldname": "section_break_dluw",
+   "fieldtype": "Section Break"
+  },
+  {
+   "description": "Company or Organization seeking to Hire",
+   "fieldname": "company",
    "fieldtype": "Data",
-   "label": "Location"
+   "label": "Company"
+  },
+  {
+   "fieldname": "position",
+   "fieldtype": "Link",
+   "label": "Position",
+   "options": "Job Vacancy Position"
   }
  ],
  "has_web_view": 1,
  "index_web_pages_for_search": 1,
  "is_published_field": "is_published",
  "links": [],
- "modified": "2025-02-07 09:05:24.976955",
+ "modified": "2025-02-10 08:05:40.404917",
  "modified_by": "Administrator",
  "module": "The Flying Fish",
  "name": "Job Vacancy",

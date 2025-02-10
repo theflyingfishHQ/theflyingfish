@@ -8,7 +8,7 @@ from frappe.website.website_generator import WebsiteGenerator
 
 class JobVacancy(WebsiteGenerator):
 	def before_save(self):
-		self.route = "job-board/{}".format(self.name)
+		self.route = "job-vacancies/{}".format(self.name)
 
 	def get_context(self, context):
 		# this is for double precaution. usually it wont reach this code if not published
