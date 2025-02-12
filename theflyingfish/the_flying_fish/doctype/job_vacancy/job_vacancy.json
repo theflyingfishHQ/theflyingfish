@@ -16,6 +16,8 @@
   "cover_image",
   "section_break_iefr",
   "vacancy_details",
+  "admin_section",
+  "apply_button_function",
   "section_break_dluw",
   "route"
  ],
@@ -75,14 +77,25 @@
    "fieldname": "position",
    "fieldtype": "Link",
    "label": "Position",
-   "options": "Job Vacancy Position"
+   "options": "Crew Position"
+  },
+  {
+   "fieldname": "admin_section",
+   "fieldtype": "Section Break",
+   "label": "Admin"
+  },
+  {
+   "fieldname": "apply_button_function",
+   "fieldtype": "Select",
+   "label": "Apply Button Function",
+   "options": "Local Email Client\nReferral Dialogue\nApplication Web Form"
   }
  ],
  "has_web_view": 1,
  "index_web_pages_for_search": 1,
  "is_published_field": "is_published",
  "links": [],
- "modified": "2025-02-10 08:05:40.404917",
+ "modified": "2025-02-11 09:24:47.266376",
  "modified_by": "Administrator",
  "module": "The Flying Fish",
  "name": "Job Vacancy",

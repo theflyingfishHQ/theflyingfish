@@ -22,6 +22,7 @@ def get_context(context):
 	context.sort = sort
 
 
+
 def get_job_openings(filters=None, txt=None, sort=None, limit=20, offset=0):
 	jo = frappe.qb.DocType("Job Vacancy")
 	# ja = frappe.qb.DocType("Job Applicant")
@@ -41,6 +42,7 @@ def get_job_openings(filters=None, txt=None, sort=None, limit=20, offset=0):
 			jo.company,
 			(jo.creation).as_("posted_on"),
 			# jo.closes_on,
+			jo.apply_button_function,
 			jo.cover_image,
 			Count(jo.vacancy_title).as_("no_of_applications"),
 		)
