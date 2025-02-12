@@ -1,4 +1,32 @@
 {% extends "templates/web.html" %}
+<!-- breadcrumbs -->
+<div class="page-breadcrumbs">
+	{% block breadcrumbs %}
+		<div class="page-breadcrumbs">
+			<div class="breadcrumb-container container">
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+						<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"
+							class="breadcrumb-item">
+							<a itemprop="item" href="/job-vacancies">
+								<span itemprop="name">Job Vacancies</span>
+								<meta itemprop="position" content="1">
+							</a>
+						</li>
+						<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"
+							class="breadcrumb-item active" aria-current="page">
+							<span itemprop="item">
+								<span itemprop="name">{{vacancy_title}}</span>
+								<meta itemprop="position" content="2">
+							</span>
+						</li>
+					</ol>
+				</nav>
+			</div>
+		
+		</div>
+	{% endblock %}
+</div>
 {% block page_content %}
 
 <div class="py-12">
@@ -17,6 +45,39 @@
 					{{ " · " }}
 					{{ creation.strftime('%Y-%m-%d') }}
 				</div>
+			</div>
+		</div>
+		<div class="col-md-3 flex">
+			<div class="ml-auto d-none d-md-block">
+				<!-- Local Email Client -->
+				{%- if apply_button_function == "Local Email Client" -%}
+					<a
+						class="btn btn-primary btn-lg"
+						onclick="ApplyByEmail()"
+					>
+						{{ _("Apply Now") }}
+					</a>
+				{% endif %}
+				
+				<!-- Referral -->
+				{%- if apply_button_function == "Referral Dialogue" -%}
+					<a 
+						class="btn btn-primary btn-lg"
+						onclick="ApplyByReferral()"
+					>
+						{{ _("Apply Now") }}
+					</a>
+				{% endif %}
+				
+				<!-- Application Web Form -->
+				{%- if apply_button_function == "Application Web Form" -%}
+				<a 
+					class="btn btn-primary btn-lg"
+					onclick="ApplyByWebForm()"
+				>
+					{{ _("Apply Now") }}
+				</a>
+				{% endif %}
 			</div>
 		</div>
 	</div>
@@ -180,25 +241,89 @@
 	<!-- Mobile Apply Now Button -->
 	<div id="sticky-div" class="position-sticky d-md-none" style="bottom: 0; ">
 		<div class="w-100 bg-white py-8">
-			{%- if status == "Open" -%}
+			{%- if apply_button_function == "Local Email Client" -%}
 				<a
 					class="btn btn-primary btn-lg w-100"
-					href="/{{ job_application_route if job_application_route else 'job_application' }}/new?job_title={{ name }}"
+					onclick="ApplyByEmail()"
 				>
 					{{ _("Apply Now") }}
 				</a>
-			{%- else -%}
-				<div
-					class="py-4 px-10 text-center font-weight-bold text-nowrap"
-					style="background: var(--bg-gray);
-						font-size: 1.1rem;
-						border-radius: var(--border-radius)"
+			{% endif %}
+			{%- if apply_button_function == "Referral Dialogue" -%}
+				<a
+					class="btn btn-primary btn-lg w-100"
+					onclick="ApplyByReferral()"
 				>
-					{{ _("Opening closed.") }}
-				</div>
+					{{ _("Apply Now") }}
+				</a>
+			{% endif %}
+			{%- if apply_button_function == "Application Web Form" -%}
+				<a
+					class="btn btn-primary btn-lg w-100"
+					onclick="ApplyByWebForm()"
+				>
+					{{ _("Apply Now") }}
+				</a>
 			{% endif %}
 		</div>
 	</div>
 </div>
 
+<script>
+	function ApplyByEmail() {
+		var vacancy_title = "{{vacancy_title}}"
+		var company = "{{company}}"
+		frappe.confirm('Continue to open Local Email Client?',
+			() => {
+				frappe.db.get_single_value('TheFlyingFish Settings', 'email_template')
+					.then(template => {
+						if (template) {
+							
+							let emailBody = template
+								.replace(/\{\{company\}\}/g, company)
+								.replace(/\{\{vacancy_title\}\}/g, vacancy_title)
+								.replace(/<[^>]*>/g, ''); // Remove any HTML tags
+                        
+							const from = frappe.session.user_email
+							const subject = encodeURIComponent("{{ vacancy_title }} Job Offer");
+							const body = encodeURIComponent(emailBody);
+							const mailto_link = `mailto:?subject=${subject}&body=${body}`;
+							window.location.href = mailto_link;
+						} else {
+							frappe.throw(__('Email template not found'));
+						}
+					});
+			}, () => {
+				// action to perform if No is selected
+		});
+	}
+
+	function ApplyByReferral() {
+		frappe.confirm('<strong>Continue to Redirect to Job Poster Site?</strong>\nhttps://phamos.eu/jobs',
+			() => {
+				window.open("https://phamos.eu/jobs", "_blank");
+			}, () => {
+				// action to perform if No is selected
+		});
+	}
+	function ApplyByWebForm(){
+		frappe.confirm('<strong>Open Application Web Form | Coming Soon!</strong>',
+			() => {
+
+			}, () => {
+				
+		})
+	}
+	
+</script>
+
 {% endblock page_content %}
+
+{%- block script %}
+	{% if colocated_js -%}
+		<script>{{ colocated_js }}</script>
+	{%- endif %}
+	<script type="text/javascript" src="/assets/frappe/dist/js/libs.bundle.LLRFRX7M.js"></script>
+	<script type="text/javascript" src="/assets/frappe/dist/js/desk.bundle.S5ATQFQO.js"></script>
+	<script type="text/javascript" src="/assets/frappe/dist/js/controls.bundle.5D7J45WA.js"></script>
+{%- endblock %}
