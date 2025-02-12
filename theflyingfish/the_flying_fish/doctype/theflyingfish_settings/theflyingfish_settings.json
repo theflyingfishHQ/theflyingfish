@@ -1,0 +1,46 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-02-12 11:07:16.882372",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "email_configuration_section",
+  "email_template"
+ ],
+ "fields": [
+  {
+   "fieldname": "email_configuration_section",
+   "fieldtype": "Section Break",
+   "label": "Email Configuration"
+  },
+  {
+   "fieldname": "email_template",
+   "fieldtype": "HTML Editor",
+   "label": "Email Template"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2025-02-12 12:25:21.362408",
+ "modified_by": "Administrator",
+ "module": "The Flying Fish",
+ "name": "TheFlyingFish Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
