@@ -18,8 +18,7 @@
   "vacancy_details",
   "admin_section",
   "apply_button_function",
-  "referral_url",
-  "section_break_isa0",
+  "section_break_dluw",
   "route"
  ],
  "fields": [
@@ -65,6 +64,10 @@
    "fieldtype": "Section Break"
   },
   {
+   "fieldname": "section_break_dluw",
+   "fieldtype": "Section Break"
+  },
+  {
    "description": "Company or Organization seeking to Hire",
    "fieldname": "company",
    "fieldtype": "Data",
@@ -86,24 +89,13 @@
    "fieldtype": "Select",
    "label": "Apply Button Function",
    "options": "Local Email Client\nReferral Dialogue\nApplication Web Form"
-  },
-  {
-   "depends_on": "eval:doc.apply_button_function===\"Referral Dialogue\"",
-   "fieldname": "referral_url",
-   "fieldtype": "Data",
-   "hidden": 1,
-   "label": "Referral URL"
-  },
-  {
-   "fieldname": "section_break_isa0",
-   "fieldtype": "Section Break"
   }
  ],
  "has_web_view": 1,
  "index_web_pages_for_search": 1,
  "is_published_field": "is_published",
  "links": [],
- "modified": "2025-02-14 16:45:53.194056",
+ "modified": "2025-02-11 09:24:47.266376",
  "modified_by": "Administrator",
  "module": "The Flying Fish",
  "name": "Job Vacancy",
