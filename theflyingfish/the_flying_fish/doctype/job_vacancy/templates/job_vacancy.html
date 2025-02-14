@@ -275,20 +275,23 @@
 		var company = "{{company}}"
 		frappe.confirm('Continue to open Local Email Client?',
 			() => {
-				frappe.db.get_single_value('TheFlyingFish Settings', 'email_template')
-					.then(template => {
-						if (template) {
-							
-							let emailBody = template
-								.replace(/\{\{company\}\}/g, company)
-								.replace(/\{\{vacancy_title\}\}/g, vacancy_title)
-								.replace(/<[^>]*>/g, ''); // Remove any HTML tags
-                        
-							const from = frappe.session.user_email
-							const subject = encodeURIComponent("{{ vacancy_title }} Job Offer");
-							const body = encodeURIComponent(emailBody);
-							const mailto_link = `mailto:?subject=${subject}&body=${body}`;
-							window.location.href = mailto_link;
+				frappe.call("frappe.client.get_value", {
+					doctype: "TheFlyingFish Settings",
+					filters: {}, // If you had filters
+					fieldname: "email_template" // If you just want one field
+				}, (r) => {
+					if (r.message) {
+						template = r.message.email_template
+						let emailBody = template
+							.replace(/\{\{company\}\}/g, company)
+							.replace(/\{\{vacancy_title\}\}/g, vacancy_title)
+							.replace(/<[^>]*>/g, ''); // Remove any HTML tags
+					
+						const from = frappe.session.user_email
+						const subject = encodeURIComponent("{{ vacancy_title }} Job Offer");
+						const body = encodeURIComponent(emailBody);
+						const mailto_link = `mailto:?subject=${subject}&body=${body}`;
+						window.location.href = mailto_link;
 						} else {
 							frappe.throw(__('Email template not found'));
 						}
