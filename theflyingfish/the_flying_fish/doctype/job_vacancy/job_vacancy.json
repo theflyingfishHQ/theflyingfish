@@ -19,6 +19,7 @@
   "admin_section",
   "apply_button_function",
   "email_id",
+  "referral_url",
   "section_break_isa0",
   "route"
  ],
@@ -88,10 +89,6 @@
    "options": "Local Email Client\nReferral Dialogue\nApplication Web Form"
   },
   {
-   "fieldname": "section_break_isa0",
-   "fieldtype": "Section Break"
-  },
-  {
    "depends_on": "eval:doc.apply_button_function===\"Local Email Client\"",
    "fieldname": "email_id",
    "fieldtype": "Data",
@@ -103,6 +100,10 @@
    "fieldname": "referral_url",
    "fieldtype": "Data",
    "label": "Referral URL"
+  },
+  {
+   "fieldname": "section_break_isa0",
+   "fieldtype": "Section Break"
   }
  ],
  "has_web_view": 1,

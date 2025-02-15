@@ -303,9 +303,9 @@
 	}
 
 	function ApplyByReferral() {
-		frappe.confirm('<strong>Continue to Redirect to Job Poster Site?</strong>\nhttps://phamos.eu/jobs',
+		frappe.confirm('<strong>Continue to Redirect to Job Poster Site?</strong>\n{{referral_url}}',
 			() => {
-				window.open("https://phamos.eu/jobs", "_blank");
+				window.open("{{referral_url}}", "_blank");
 			}, () => {
 				// action to perform if No is selected
 		});
