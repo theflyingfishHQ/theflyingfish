@@ -288,9 +288,10 @@
 							.replace(/<[^>]*>/g, ''); // Remove any HTML tags
 					
 						const from = frappe.session.user_email
+						const to = "{{email_id}}"
 						const subject = encodeURIComponent("{{ vacancy_title }} Job Offer");
 						const body = encodeURIComponent(emailBody);
-						const mailto_link = `mailto:?subject=${subject}&body=${body}`;
+						const mailto_link = `mailto:?subject=${subject}&body=${body}&from=${from}&to=${to}`;
 						window.location.href = mailto_link;
 						} else {
 							frappe.throw(__('Email template not found'));
