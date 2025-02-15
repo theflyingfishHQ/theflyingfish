@@ -18,6 +18,7 @@
   "vacancy_details",
   "admin_section",
   "apply_button_function",
+  "email_id",
   "referral_url",
   "section_break_isa0",
   "route"
@@ -88,10 +89,16 @@
    "options": "Local Email Client\nReferral Dialogue\nApplication Web Form"
   },
   {
+   "depends_on": "eval:doc.apply_button_function===\"Local Email Client\"",
+   "fieldname": "email_id",
+   "fieldtype": "Data",
+   "label": "Email Id",
+   "options": "Email"
+  },
+  {
    "depends_on": "eval:doc.apply_button_function===\"Referral Dialogue\"",
    "fieldname": "referral_url",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "Referral URL"
   },
   {
@@ -103,7 +110,7 @@
  "index_web_pages_for_search": 1,
  "is_published_field": "is_published",
  "links": [],
- "modified": "2025-02-14 16:45:53.194056",
+ "modified": "2025-02-15 15:00:30.587087",
  "modified_by": "Administrator",
  "module": "The Flying Fish",
  "name": "Job Vacancy",
