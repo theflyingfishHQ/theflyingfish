@@ -95,16 +95,21 @@
    "depends_on": "eval:doc.apply_button_function===\"Local Email Client\"",
    "fieldname": "email_id",
    "fieldtype": "Data",
-   "hidden": 1,
    "label": "Email Id",
    "options": "Email"
+  },
+  {
+   "depends_on": "eval:doc.apply_button_function===\"Referral Dialogue\"",
+   "fieldname": "referral_url",
+   "fieldtype": "Data",
+   "label": "Referral URL"
   }
  ],
  "has_web_view": 1,
  "index_web_pages_for_search": 1,
  "is_published_field": "is_published",
  "links": [],
- "modified": "2025-02-15 14:43:58.290238",
+ "modified": "2025-02-15 15:00:30.587087",
  "modified_by": "Administrator",
  "module": "The Flying Fish",
  "name": "Job Vacancy",
