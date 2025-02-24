@@ -89,7 +89,6 @@
    "options": "\nLocal Email Client\nReferral Dialogue\nApplication Web Form"
   },
   {
-   "depends_on": "eval:doc.apply_button_function===\"Local Email Client\"",
    "fieldname": "email_id",
    "fieldtype": "Data",
    "label": "Email Id",
@@ -97,7 +96,6 @@
    "options": "Email"
   },
   {
-   "depends_on": "eval:doc.apply_button_function===\"Referral Dialogue\"",
    "fieldname": "referral_url",
    "fieldtype": "Data",
    "label": "Referral URL",
