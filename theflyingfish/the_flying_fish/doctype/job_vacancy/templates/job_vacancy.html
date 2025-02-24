@@ -275,12 +275,11 @@
 		var company = "{{company}}"
 		frappe.confirm('Continue to open Local Email Client?',
 			() => {
-				frappe.call("frappe.client.get_value", {
-					doctype: "TheFlyingFish Settings",
-					filters: {}, // If you had filters
-					fieldname: "email_template" // If you just want one field
-				}, (r) => {
-					if (r.message) {
+				frappe.call({
+					method: "theflyingfish.the_flying_fish.doctype.job_vacancy.job_vacancy.get_email_template",
+					args: {},
+					callback: (r) => {
+						if (r.message) {
 						template = r.message.email_template
 						let emailBody = template
 							.replace(/\{\{company\}\}/g, company)
@@ -296,7 +295,10 @@
 						} else {
 							frappe.throw(__('Email template not found'));
 						}
-					});
+						
+					}
+				})
+
 			}, () => {
 				// action to perform if No is selected
 		});

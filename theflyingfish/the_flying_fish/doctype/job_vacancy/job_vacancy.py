@@ -24,3 +24,10 @@ class JobVacancy(WebsiteGenerator):
 		}
 
 		context.metatags["image"] = self.cover_image or None
+
+
+@frappe.whitelist(allow_guest=True)
+def get_email_template():
+    email_template = frappe.db.get_value("TheFlyingFish Settings", None, "email_template")
+    return {"email_template": email_template}
+
