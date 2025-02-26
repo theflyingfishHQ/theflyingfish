@@ -9,7 +9,7 @@
  "engine": "InnoDB",
  "field_order": [
   "vacancy_title",
-  "position",
+  "crew_position",
   "company",
   "column_break_sjeg",
   "is_published",
@@ -72,12 +72,6 @@
    "label": "Company"
   },
   {
-   "fieldname": "position",
-   "fieldtype": "Link",
-   "label": "Position",
-   "options": "Crew Position"
-  },
-  {
    "fieldname": "admin_section",
    "fieldtype": "Section Break",
    "label": "Admin"
@@ -86,31 +80,39 @@
    "fieldname": "apply_button_function",
    "fieldtype": "Select",
    "label": "Apply Button Function",
-   "options": "Local Email Client\nReferral Dialogue\nApplication Web Form"
+   "options": "\nLocal Email Client\nReferral Dialogue\nApplication Web Form"
   },
   {
    "depends_on": "eval:doc.apply_button_function===\"Local Email Client\"",
    "fieldname": "email_id",
    "fieldtype": "Data",
    "label": "Email Id",
+   "mandatory_depends_on": "eval:doc.apply_button_function===\"Local Email Client\"",
    "options": "Email"
   },
   {
    "depends_on": "eval:doc.apply_button_function===\"Referral Dialogue\"",
    "fieldname": "referral_url",
    "fieldtype": "Data",
-   "label": "Referral URL"
+   "label": "Referral URL",
+   "mandatory_depends_on": "eval:doc.apply_button_function===\"Referral Dialogue\""
   },
   {
    "fieldname": "section_break_isa0",
    "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "crew_position",
+   "fieldtype": "Link",
+   "label": "Crew Position",
+   "options": "Crew Position"
   }
  ],
  "has_web_view": 1,
  "index_web_pages_for_search": 1,
  "is_published_field": "is_published",
  "links": [],
- "modified": "2025-02-15 15:00:30.587087",
+ "modified": "2025-02-26 15:55:58.358421",
  "modified_by": "Administrator",
  "module": "The Flying Fish",
  "name": "Job Vacancy",
