@@ -9,7 +9,7 @@
  "engine": "InnoDB",
  "field_order": [
   "vacancy_title",
-  "position",
+  "crew_position",
   "company",
   "column_break_sjeg",
   "is_published",
@@ -72,12 +72,6 @@
    "label": "Company"
   },
   {
-   "fieldname": "position",
-   "fieldtype": "Link",
-   "label": "Position",
-   "options": "Crew Position"
-  },
-  {
    "fieldname": "admin_section",
    "fieldtype": "Section Break",
    "label": "Admin"
@@ -104,6 +98,12 @@
   {
    "fieldname": "section_break_isa0",
    "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "crew_position",
+   "fieldtype": "Link",
+   "label": "Crew Position",
+   "options": "Crew Position"
   }
  ],
  "has_web_view": 1,

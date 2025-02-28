@@ -1,26 +1,26 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:position",
- "creation": "2025-02-11 09:22:01.955855",
+ "autoname": "field:title",
+ "creation": "2025-02-25 13:20:14.383283",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "position"
+  "title"
  ],
  "fields": [
   {
-   "fieldname": "position",
+   "fieldname": "title",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Position",
+   "label": "Title",
    "reqd": 1,
    "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-11 09:23:23.984871",
+ "modified": "2025-02-26 08:58:46.216764",
  "modified_by": "Administrator",
  "module": "The Flying Fish",
  "name": "Crew Position",
@@ -41,9 +41,8 @@
   }
  ],
  "quick_entry": 1,
- "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "position"
+ "title_field": "title"
 }
