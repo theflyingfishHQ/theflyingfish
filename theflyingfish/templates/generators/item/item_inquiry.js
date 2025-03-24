@@ -1,8 +1,13 @@
 frappe.ready(() => {
-	console.log('22')
 	const d = new frappe.ui.Dialog({
 		title: __('Contact Us'),
 		fields: [
+			{
+				fieldtype: 'Select',
+				label: __('Lead Source'),
+				fieldname: 'lead_source',
+				options: ['Website', 'Email', 'Social Media', 'Referral', 'Other'],
+			},
 			{
 				fieldtype: 'Data',
 				label: __('Full Name'),
@@ -48,12 +53,12 @@ frappe.ready(() => {
 	function send_inquiry() {
 		const values = d.get_values();
 		const doc = Object.assign({}, values);
-		delete doc.subject;
-		delete doc.message;
+		//delete doc.subject;
+		//delete doc.message;
 
 		d.hide();
 
-		frappe.call('webshop.webshop.shopping_cart.cart.create_lead_for_item_inquiry', {
+		frappe.call('theflyingfish.overrides.cart.create_lead_for_item_inquiry', {
 			lead: doc,
 			subject: values.subject,
 			message: values.message
