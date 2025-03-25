@@ -109,6 +109,18 @@ app_license = "mit"
 # has_permission = {
 # 	"Event": "frappe.desk.doctype.event.event.has_permission",
 # }
+fixtures = [
+    {
+        "dt": "Custom Field", "filters":[
+            [
+                "name","in",[
+                    "Lead-custom_lead_source",
+                    "Lead-custom_message"
+                ]
+            ]
+        ]
+    }
+]
 
 # DocType Class
 # ---------------
