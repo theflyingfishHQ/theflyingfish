@@ -9,7 +9,7 @@ class WebsitePriceListMissingError(frappe.ValidationError):
 def create_lead_for_item_inquiry(lead, subject, message):
 	lead = frappe.parse_json(lead)
 	lead_doc = frappe.new_doc("Lead")
-	for fieldname in ("lead_name", "company_name", "email_id", "phone","message","lead_source"):
+	for fieldname in ("lead_name", "company_name", "email_id", "phone"):
 		lead_doc.set(fieldname, lead.get(fieldname))
 
 	lead_doc.set("lead_owner", "")

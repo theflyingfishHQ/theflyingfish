@@ -3,12 +3,6 @@ frappe.ready(() => {
 		title: __('Contact Us'),
 		fields: [
 			{
-				fieldtype: 'Select',
-				label: __('Lead Source'),
-				fieldname: 'lead_source',
-				options: ['Website', 'Email', 'Social Media', 'Referral', 'Other'],
-			},
-			{
 				fieldtype: 'Data',
 				label: __('Full Name'),
 				fieldname: 'lead_name',

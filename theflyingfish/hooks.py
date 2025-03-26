@@ -114,8 +114,7 @@ fixtures = [
         "dt": "Custom Field", "filters":[
             [
                 "name","in",[
-                    "Lead-custom_lead_source",
-                    "Lead-custom_message"
+                    
                 ]
             ]
         ]
